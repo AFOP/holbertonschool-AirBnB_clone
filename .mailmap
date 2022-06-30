@@ -1,0 +1,23 @@
+# Generate AUTHORS: hack/generate-authors.sh
+
+# Tip for finding duplicates (besides scanning the output of AUTHORS for name
+# duplicates that aren't also email duplicates): scan the output of:
+#   git log --format='%aE - %aN' | sort -uf
+#
+# For explanation on this file format: man git-shortlog
+
+DANIELA IBARRA <4427@holbertonschool.com>
+JOHAN BLANDON <4543@holbertonschool.com>
+SEBASTIAN CARVAJAL <4574@holbertonschool.com>
+RICARDO MONTAÑA <4578@holbertonschool.com>
+ROBERT ORTEGA <4585@holbertonschool.com>
+KEVIN RAMIREZ <3884@holbertonschool.com>
+SEBASTIAN GARCIA <4564@holbertonschool.com>
+DAVID PERLAZA <4572@holbertonschool.com>
+ANDRES OCAÑA <4592@holbertonschool.com>
+IVAN OCAMPO <4597@holbertonschool.com>
+HECTOR ANDRES <4659@holbertonschool.com>
+FRANCISCO RAMIREZ <4735@holbertonschool.com>
+JHOJAN PERLAZA <4739@holbertonschool.com>
+MATEO SALAMANCA <4765@holbertonschool.com>
+
