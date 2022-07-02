@@ -3,21 +3,23 @@
 
 import json
 import os
+from models.base_model import BaseModel
 
-class FileStorage():
+class FileStorage:
     # class FileStorage
 
-    def __init__():
-    # method constructor with arguments
-    
+    __file_path = "file.json"
+    __objects = {} 
 
     def all(self):
     # returns the dictionary __objects
-        pass
+        return self.__objects
 
     def new(self, obj):
     # sets in __objects the obj with key <obj class name>.id
-        pass
+        if obj is not None:
+            key = "{}.{}".format(type(obj).__name__, obj.id)
+            self.__objects[key] = obj
 
     def save(self):
     # serializes __objects to the JSON file (path: __file_path)
