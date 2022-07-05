@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """defines all common attributes/methods for other classes"""
+
 import uuid
 from datetime import datetime
 from models import storage
@@ -10,7 +11,6 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """method constructor with arguments"""
-
         if kwargs is not None and kwargs != {}:
             for key, value in kwargs.items():
                 if key != "__class__":
