@@ -11,6 +11,7 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
+    d = {}
 
     def all(self):
         """returns the dictionary __objects"""
@@ -24,15 +25,21 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
+        new_dic = {}
         with open(self.__file_path, 'w', encoding="utf-8") as f:
-            self.__objects = json.dumps(
-                self.__objects, sort_keys=True, default=str)
-            f.write(self.__objects)
+            for key, obj in self.__objects.items():
+                new_dic[key] = obj
+            f.write(json.dumps(new_dic, sort_keys=True, default=str))
 
     def reload(self):
         """deserializes the JSON file to __objects"""
+        from models.user import User
+        new_dic = {}
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r', encoding="utf-8") as file_json:
-                self.__objects = json.loads(file_json.read())
+                new_dic = json.load(file_json)
+                for key, obj in new_dic.items():
+                    new_obj = User(obj)
+                    self.__objects[key] = new_obj
         else:
             pass
