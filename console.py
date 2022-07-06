@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# console same shell
+# console same to shell
 
 import cmd, sys
 import json
@@ -14,7 +14,7 @@ class HBNBCommand(cmd.Cmd):
 
     # ----- basic HBNB commands -----
     def do_create(self, arg):
-        'Creates a new instance of BaseModel and print its\n'
+        """Creates a new instance of BaseModel and print its\n"""
         if not (arg):
             print("** class name missing **")
         elif arg != 'BaseModel':
@@ -25,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
             print(my_model.id)
             
     def do_show(self, arg):
-        'Prints the string representation of an instance base on the class name and id\n'
+        """Prints the string representation of an instance base on the class name and id\n"""
         if arg:
             arg = arg.split()
             if arg[0] != 'BaseModel':
@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_destroy(self, arg):
-        'Deletes an instance based on the class name and id\n'
+        """Deletes an instance based on the class name and id\n"""
         if arg:
             arg = arg.split()
             if arg[0] != 'BaseModel':
@@ -62,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_all(self, arg):
-        'Prints all string representation of all instances based or not on the class name\n'
+        """Prints all string representation of all instances based or not on the class name\n"""
         if arg:
             arg = arg.split()
             if arg[0] != 'BaseModel':
@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
             print("[\"{}\"]".format(str(storage.all())))
 
     def do_update(self, arg):
-        'Updates an instance based on the class name and id by adding or updating attribute\n'
+        """Updates an instance based on the class name and id by adding or updating attribute\n"""
         if arg:
             arg = arg.split()
             if arg[0] != 'BaseModel':
@@ -93,11 +93,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_quit(self, arg):
-        'Quit command to exit the program\n'
+        """Quit command to exit the program\n"""
         return True
 
     def do_EOF(self, arg):
-        'Quit command to exit the program\n'
+        """Quit command to exit the program\n"""
         return True
 
     # ----- builtin HBNB commands -----
@@ -105,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
 def parse(arg):
-    'return arg parse'
+    """return arg parse"""
     return arg.split()
 
 if __name__ == '__main__':
