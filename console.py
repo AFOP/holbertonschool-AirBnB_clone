@@ -88,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
                 my_list = []
                 for key, obj in storage.all().items():
                     if obj.__class__.__name__ == arg[0]:
-                        my_list.append(obj.__str__()) 
+                        my_list.append(obj.__str__())
                 print(my_list)
         else:
             my_list = []
