@@ -13,12 +13,12 @@ class BaseModel:
         """method constructor with arguments"""
         if kwargs is not None and kwargs != {}:
             for key, value in kwargs.items():
-                if key != "__class__":
+                if key != '__class__':
                     kwargs[key] = value
-                format = "%Y-%m-%dT%H:%M:%S.%f"
-                if key == "created_at":
+                format = '%Y-%m-%dT%H:%M:%S.%f'
+                if key == 'created_at':
                     value = datetime.strptime(value, format)
-                if key == "updated_at":
+                if key == 'updated_at':
                     value = datetime.strptime(value, format)
         else:
             self.id = str(uuid.uuid4())
@@ -46,7 +46,7 @@ class BaseModel:
         __dict__ of the instance
         """
         d = self.__dict__
-        d["__class__"] = self.__class__.__name__
-        d["created_at"] = self.created_at.isoformat()
-        d["updated_at"] = self.updated_at.isoformat()
+        d['__class__'] = self.__class__.__name__
+        d['created_at'] = self.created_at.isoformat()
+        d['updated_at'] = self.updated_at.isoformat()
         return d
