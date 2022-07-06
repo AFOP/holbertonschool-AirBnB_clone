@@ -55,7 +55,7 @@ guillaume@ubuntu:~/AirBnB$
 ## :wrench: Examples
 
 * **all**
-  ```
+```
 Welcome to the shell.   Type help or ? to list commands.
 
 (hbnb) help all
@@ -71,7 +71,7 @@ guillaume@ubuntu:~/AirBnB$
 ```
 
 * **create**
-  ```
+```
 Welcome to the shell.   Type help or ? to list commands.
 
 (hbnb) help create
@@ -86,7 +86,7 @@ guillaume@ubuntu:~/AirBnB$
 ```
 
 * **create**
-  ```
+```
 (hbnb) help destroy
 Deletes an instance based on the class name and id
 
