@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-import cmd, sys
-import json
+import cmd
 from models.base_model import BaseModel
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """Class HBNBCommand: contains the entry point of the command interpreter"""
+    """Class HBNBCommand: contains the entry
+    point of the command interpreter"""
 
     prompt = '(hbnb) '
 
     def do_create(self, arg):
-        """Creates a new instance of BaseModel and print its\n"""
+        """Creates a new instance of BaseModel
+        and print its\n"""
         if not (arg):
             print("** class name missing **")
         elif arg != 'BaseModel':
@@ -20,9 +21,10 @@ class HBNBCommand(cmd.Cmd):
             my_model = BaseModel()
             my_model.save()
             print(my_model.id)
-            
+
     def do_show(self, arg):
-        """Prints the string representation of an instance base on the class name and id\n"""
+        """Prints the string representation of an instance
+        base on the class name and id\n"""
         if arg:
             arg = arg.split()
             if arg[0] != 'BaseModel':
@@ -30,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
             elif len(arg) < 2:
                 print("** instance id missing **")
             else:
-                compare = arg[0] + "." + arg[1] 
+                compare = arg[0] + "." + arg[1]
                 for key, obj in storage.all().items():
                     if key == compare:
                         print(obj)
@@ -40,7 +42,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_destroy(self, arg):
-        """Deletes an instance based on the class name and id\n"""
+        """Deletes an instance based on the
+        class name and id\n"""
         if arg:
             arg = arg.split()
             if arg[0] != 'BaseModel':
@@ -48,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
             elif len(arg) < 2:
                 print("** instance id missing **")
             else:
-                compare = arg[0] + "." + arg[1] 
+                compare = arg[0] + "." + arg[1]
                 for key, obj in storage.all().items():
                     if key == compare:
                         del storage.all()[key]
@@ -59,7 +62,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_all(self, arg):
-        """Prints all string representation of all instances based or not on the class name\n"""
+        """Prints all string representation of all
+        instances based or not on the class name\n"""
         if arg:
             arg = arg.split()
             if arg[0] != 'BaseModel':
@@ -70,7 +74,8 @@ class HBNBCommand(cmd.Cmd):
             print("[\"{}\"]".format(str(storage.all())))
 
     def do_update(self, arg):
-        """Updates an instance based on the class name and id by adding or updating attribute\n"""
+        """Updates an instance based on the class name
+        and id by adding or updating attribute\n"""
         if arg:
             arg = arg.split()
             if arg[0] != 'BaseModel':
@@ -79,10 +84,10 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
             else:
                 compare = arg[0] + "." + arg[1]
-                print(type(storage.all())) 
+                print(type(storage.all()))
                 for key, obj in storage.all().items():
                     if key == compare:
-                        storage.all()[arg[2]] = arg[3].strip('"') 
+                        storage.all()[arg[2]] = arg[3].strip('"')
                         storage.save()
                         return
                 print("** no instance found **")
@@ -99,6 +104,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
