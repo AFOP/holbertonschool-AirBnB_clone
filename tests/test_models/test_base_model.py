@@ -10,6 +10,7 @@ class  General(unittest.TestCase):
     def test_id(self):
         "method test id"
         my_model1 = BaseModel()
+        self.assertIsInstance(my_model1, BaseModel)
         my_model2 = BaseModel()
         self.assertNotEqual(my_model1.id, my_model2.id)
 
@@ -18,10 +19,13 @@ class  General(unittest.TestCase):
 
         my_model = BaseModel()
         my_dict = my_model.to_dict()
+        self.assertIsInstance(my_dict, dict)
         for key, value in my_dict.items():
             if key == 'created_at':
                 self.assertIsInstance(value, str)
             if key == 'updated_at':
+                self.assertIsInstance(value, str)
+            if key == 'id':
                 self.assertIsInstance(value, str)
 
     def  test_str(self):
