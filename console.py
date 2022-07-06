@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# console same to shell
 
 import cmd, sys
 import json
