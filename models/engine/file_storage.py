@@ -27,7 +27,7 @@ class FileStorage:
         """sets in __objects the obj with key <obj class name>.id"""
         if obj is not None:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
-            self.__objects[key] = obj
+            self.__objects[key] = obj.to_dict()
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
