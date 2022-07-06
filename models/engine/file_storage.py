@@ -3,9 +3,9 @@
     that serializes instances to a JSON
     file and deserializes JSON file to instances
 """
-
 import json
 import os
+
 
 class FileStorage:
     # class FileStorage
@@ -46,7 +46,6 @@ class FileStorage:
         from models.amenity import Amenity
         from models.place import Place
         from models.review import Review
-        
         list_className = {
             "BaseModel": BaseModel, "User": User,
             "State": State, "City": City,
