@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import cmd, sys
 import json
 from models.base_model import BaseModel
@@ -8,10 +7,9 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """Class HBNBCommand: contains the entry point of the command interpreter"""
-    intro = 'Welcome to the shell.   Type help or ? to list commands.\n'
+
     prompt = '(hbnb) '
 
-    # ----- basic HBNB commands -----
     def do_create(self, arg):
         """Creates a new instance of BaseModel and print its\n"""
         if not (arg):
@@ -99,13 +97,8 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program\n"""
         return True
 
-    # ----- builtin HBNB commands -----
     def emptyline(self):
         pass
-
-def parse(arg):
-    """return arg parse"""
-    return arg.split()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
