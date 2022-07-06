@@ -2,6 +2,12 @@
 import cmd
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -10,15 +16,21 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
 
+    list_className = {
+            "BaseModel": BaseModel, "User": User,
+            "State": State, "City": City,
+            "Amenity": Amenity, "Place": Place,
+            "Review": Review}
+
     def do_create(self, arg):
         """Creates a new instance of BaseModel
         and print its\n"""
         if not (arg):
             print("** class name missing **")
-        elif arg != 'BaseModel':
+        elif arg not in self.list_className:
             print("** class doesn't exist **")
         else:
-            my_model = BaseModel()
+            my_model = self.list_className[arg]()
             my_model.save()
             print(my_model.id)
 
@@ -27,7 +39,7 @@ class HBNBCommand(cmd.Cmd):
         base on the class name and id\n"""
         if arg:
             arg = arg.split()
-            if arg[0] != 'BaseModel':
+            if arg[0] not in self.list_class:
                 print("** class doesn't exist **")
             elif len(arg) < 2:
                 print("** instance id missing **")
@@ -46,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
         class name and id\n"""
         if arg:
             arg = arg.split()
-            if arg[0] != 'BaseModel':
+            if arg[0] not in self.list_class:
                 print("** class doesn't exist **")
             elif len(arg) < 2:
                 print("** instance id missing **")
@@ -66,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
         instances based or not on the class name\n"""
         if arg:
             arg = arg.split()
-            if arg[0] != 'BaseModel':
+            if arg[0] not in self.list_class:
                 print("** class doesn't exist **")
             else:
                 print("[\"{}\"]".format(str(storage.all())))
@@ -78,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
         and id by adding or updating attribute\n"""
         if arg:
             arg = arg.split()
-            if arg[0] != 'BaseModel':
+            if arg[0] not in self.list_class:
                 print("** class doesn't exist **")
             elif len(arg) < 2:
                 print("** instance id missing **")
