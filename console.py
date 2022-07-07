@@ -83,14 +83,14 @@ class HBNBCommand(cmd.Cmd):
         instances based or not on the class name\n"""
         if arg:
             arg = arg.split()
-            if arg[0] not in self.list_className:
-                print("** class doesn't exist **")
-            else:
+            if arg[0] in self.list_className:
                 my_list = []
                 for key, obj in storage.all().items():
                     if obj.__class__.__name__ == arg[0]:
                         my_list.append(obj.__str__())
                 print(my_list)
+            else:
+                print("** class doesn't exist **")
         else:
             my_list = []
             for key, obj in storage.all().items():
@@ -104,8 +104,10 @@ class HBNBCommand(cmd.Cmd):
             arg = arg.split()
             if arg[0] not in self.list_className:
                 print("** class doesn't exist **")
-            elif len(arg) < 2:
+            elif len(arg) == 1:
                 print("** instance id missing **")
+            elif len(arg) == 2:
+                print("** attribute name missing **")
             elif len(arg) == 3:
                 print("** value missing **")
             else:
