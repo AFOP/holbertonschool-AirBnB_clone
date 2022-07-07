@@ -102,10 +102,14 @@ class HBNBCommand(cmd.Cmd):
         and id by adding or updating attribute\n"""
         if arg:
             arg = arg.split()
+            if len(arg) > 4:
+                pass
             if arg[0] not in self.list_className:
                 print("** class doesn't exist **")
             elif len(arg) < 2:
                 print("** instance id missing **")
+            elif len(arg) == 3:
+                print("** value missing **")
             else:
                 compare = arg[0] + "." + arg[1]
                 for key, obj in storage.all().items():
