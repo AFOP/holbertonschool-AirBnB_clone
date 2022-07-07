@@ -35,7 +35,8 @@ class FileStorage:
         for key, obj in self.__objects.items():
             new_dic[key] = obj.to_dict()
         with open(self.__file_path, 'w', encoding="utf-8") as f:
-            f.write(json.dumps(new_dic, sort_keys=True, default=str))
+            json.dump(new_dic, f)
+            #f.write(string)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
@@ -59,6 +60,7 @@ class FileStorage:
                 for key, obj in new_dic.items():
                     name_class = self.parse(key)
                     new_obj = list_className[name_class](obj)
-                    self.__objects[key] = new_obj
+                    new_dic[key] = new_obj
+                self.__objects = new_dic
         else:
             pass
