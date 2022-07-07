@@ -5,11 +5,11 @@ import os
 from models.amenity import Amenity
 
 
-class  General(unittest.TestCase):
-    "Test Class General"
+class General(unittest.TestCase):
+    """Test Class General"""
 
     def test_executable_file(self):
-        "test_executable_file"
+        """test_executable_file"""
 
         is_read_true = os.access('models/user.py', os.R_OK)
         self.assertTrue(is_read_true)
@@ -21,9 +21,10 @@ class  General(unittest.TestCase):
         self.assertTrue(is_exec_true)
 
     def test_is_an_instance(self):
-        "check if my_model is an instance of BaseModel"
+        """check if my_model is an instance of BaseModel"""
         my_state = Amenity()
         self.assertIsInstance(my_state, Amenity)
 
+
 if __name__ == '__main__':
-        unittest.main()
+    unittest.main()

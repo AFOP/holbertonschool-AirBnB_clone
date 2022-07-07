@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Test for engine/file_storage.py"""
+"""Test for engine/file_storage.py"""
 import unittest
 import os
 from models.base_model import BaseModel
@@ -12,10 +12,10 @@ from models.review import Review
 
 
 class General(unittest.TestCase):
-    "Test Class General"
+    """Test Class General"""
 
     def test_executable_file(self):
-        "test_executable_file"
+        """test_executable_file"""
 
         is_read_true = os.access('models/engine/file_storage.py', os.R_OK)
         self.assertTrue(is_read_true)
@@ -27,7 +27,7 @@ class General(unittest.TestCase):
         self.assertTrue(is_exec_true)
 
     def test_save(self):
-        "method test__str"
+        """method test__str"""
 
         my_model = BaseModel()
         my_model.save()

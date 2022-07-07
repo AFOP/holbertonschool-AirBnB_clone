@@ -5,11 +5,11 @@ import os
 from models.base_model import BaseModel
 
 
-class  General(unittest.TestCase):
-    "Test Class General"
+class General(unittest.TestCase):
+    """Test Class General"""
 
     def test_executable_file(self):
-        "test_executable_file"
+        """test_executable_file"""
 
         is_read_true = os.access('models/base_model.py', os.R_OK)
         self.assertTrue(is_read_true)
@@ -21,14 +21,14 @@ class  General(unittest.TestCase):
         self.assertTrue(is_exec_true)
 
     def test_id(self):
-        "method test id"
+        """method test id"""
         my_model1 = BaseModel()
         self.assertIsInstance(my_model1, BaseModel)
         my_model2 = BaseModel()
         self.assertNotEqual(my_model1.id, my_model2.id)
 
-    def  test_to_dict(self):
-        "method test to_dict"
+    def test_to_dict(self):
+        """method test to_dict"""
 
         my_model = BaseModel()
         my_dict = my_model.to_dict()
@@ -41,8 +41,8 @@ class  General(unittest.TestCase):
             if key == 'id':
                 self.assertIsInstance(value, str)
 
-    def  test_str(self):
-        "method test__str"
+    def test_str(self):
+        """method test__str"""
 
         my_model = BaseModel()
         my_model.my_number = 89
@@ -55,12 +55,13 @@ class  General(unittest.TestCase):
         self.assertIn('updated_at', my_dict)
 
     def test_save(self):
-        "method test__save"
+        """method test__save"""
         my_model = BaseModel()
         first_updated = my_model.updated_at
         my_model.save()
         second_updated = my_model.updated_at
         self.assertNotEqual(first_updated, second_updated)
 
+
 if __name__ == '__main__':
-        unittest.main()
+    unittest.main()
