@@ -59,7 +59,7 @@ class FileStorage:
                 new_dic = json.load(file_json)
                 for key, obj in new_dic.items():
                     name_class = self.parse(key)
-                    new_obj = list_className[name_class](obj)
+                    new_obj = list_className[name_class](**obj)
                     new_dic[key] = new_obj
                 self.__objects = new_dic
         else:
