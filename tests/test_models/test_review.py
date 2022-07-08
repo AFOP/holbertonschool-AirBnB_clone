@@ -28,6 +28,9 @@ class General(unittest.TestCase):
     def test_set(self):
         """check if the class has attribute"""
         my_set = Review()
+        self.assertIsInstance(my_set.place_id, str)
+        self.assertIsInstance(my_set.user_id, str)
+        self.assertIsInstance(my_set.text, str)
         my_set.place_id = "Pasto-123-N"
         my_set.user_id = "Pasto-123-N"
         my_set.text = "Andrés"
