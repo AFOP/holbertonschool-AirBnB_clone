@@ -33,16 +33,31 @@ class General(unittest.TestCase):
         my_model = BaseModel()
         my_model.save()
         self.assertTrue(os.path.exists('file.json'))
+    
+    def test_class(self):
+        """method test__str"""
 
-    def test_file_path(self):
-        """method test__file_path if exist"""
-
-        name_exist = BaseModel()
-        name_exist.save()
-        self.assertTrue(os.path.exists('file.json'))
-        obj_exist = FileStorage()
-        obj_exist.reload() 
-        print(FileStorage.__objects)
+        my_model = BaseModel()
+        name_class = type(my_model)
+        self.assertEqual(name_class, BaseModel)
+        my_model = Amenity()
+        name_class = type(my_model)
+        self.assertEqual(name_class, Amenity)
+        my_model = City()
+        name_class = type(my_model)
+        self.assertEqual(name_class, City)
+        my_model = Place()
+        name_class = type(my_model)
+        self.assertEqual(name_class, Place)
+        my_model = Review()
+        name_class = type(my_model)
+        self.assertEqual(name_class, Review)
+        my_model = State()
+        name_class = type(my_model)
+        self.assertEqual(name_class, State)
+        my_model = User()
+        name_class = type(my_model)
+        self.assertEqual(name_class, User)
 
 
 if __name__ == '__main__':
