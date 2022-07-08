@@ -25,6 +25,13 @@ class General(unittest.TestCase):
         my_state = State()
         self.assertIsInstance(my_state, State)
 
+    def test_set(self):
+        """check if the class has attribute"""
+        my_set = State()
+        my_set.name = "Andrés"
+        my_dict = my_set.to_dict()
+        self.assertIn('name', my_dict)
+
 
 if __name__ == '__main__':
     unittest.main()

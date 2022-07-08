@@ -33,7 +33,7 @@ class General(unittest.TestCase):
         my_model = BaseModel()
         my_model.save()
         self.assertTrue(os.path.exists('file.json'))
-    
+
     def test_class(self):
         """method test__str"""
 
