@@ -28,17 +28,29 @@ class General(unittest.TestCase):
     def test_set(self):
         """check if the class has attribute"""
         my_set = Place()
-        my_set.city_id = "Pasto-123-N"
-        my_set.user_id = "Pasto-123-N"
+        self.assertIsInstance(my_set, Place)
+        self.assertIsInstance(my_set.city_id, str)
+        self.assertIsInstance(my_set.user_id, str)
+        self.assertIsInstance(my_set.name, str)
+        self.assertIsInstance(my_set.description, str)
+        self.assertIsInstance(my_set.number_rooms, int)
+        self.assertIsInstance(my_set.number_bathrooms, int)
+        self.assertIsInstance(my_set.max_guest, int)
+        self.assertIsInstance(my_set.price_by_night, int)
+        self.assertIsInstance(my_set.latitude, float)
+        self.assertIsInstance(my_set.longitude, float)
+        self.assertIsInstance(my_set.amenity_ids, list)
+        my_set.city_id = "Pasto-1234"
+        my_set.user_id = "Pasto-123"
         my_set.name = "Andrés"
         my_set.description = "Pasto its in Colombia"
         my_set.number_rooms = 2
         my_set.number_bathrooms = 1
-        my_set.max_guest = 1
-        my_set.price_by_night = 200
+        my_set.max_guest = 1234
+        my_set.price_by_night = 100000000
         my_set.latitude = 2.3
         my_set.longitude = 3.2
-        my_set.amenity_ids = [12, 13, 14]
+        my_set.amenity_ids = [1, 2, 3]
         my_dict = my_set.to_dict()
         self.assertIn('city_id', my_dict)
         self.assertIn('user_id', my_dict)
@@ -51,24 +63,7 @@ class General(unittest.TestCase):
         self.assertIn('latitude', my_dict)
         self.assertIn('longitude', my_dict)
         self.assertIn('amenity_ids', my_dict)
-        number_int = 0
-        my_type = type(my_set.number_rooms)
-        self.assertEqual(my_type, type(number_int))
-        my_type = type(my_set.number_bathrooms)
-        self.assertEqual(my_type, type(number_int))
-        my_type = type(my_set.max_guest)
-        self.assertEqual(my_type, type(number_int))
-        my_type = type(my_set.price_by_night)
-        self.assertEqual(my_type, type(number_int))
-        number_float = 0.0
-        my_type = type(my_set.latitude)
-        self.assertEqual(my_type, type(number_float))
-        my_type = type(my_set.longitude)
-        self.assertEqual(my_type, type(number_float))
-        my_list = []
-        my_type = type(my_set.amenity_ids)
-        self.assertEqual(my_type, type(my_list))
-
+        
 
 if __name__ == '__main__':
     unittest.main()
