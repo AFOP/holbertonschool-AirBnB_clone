@@ -28,6 +28,7 @@ class General(unittest.TestCase):
     def test_set(self):
         """check if the class has attribute"""
         my_set = Amenity()
+        self.assertIsInstance(my_set.name, str)
         my_set.name = "Andres"
         my_dict = my_set.to_dict()
         self.assertIn('name', my_dict)

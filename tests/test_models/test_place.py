@@ -63,7 +63,7 @@ class General(unittest.TestCase):
         self.assertIn('latitude', my_dict)
         self.assertIn('longitude', my_dict)
         self.assertIn('amenity_ids', my_dict)
-        
+
 
 if __name__ == '__main__':
     unittest.main()

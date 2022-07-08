@@ -28,6 +28,8 @@ class General(unittest.TestCase):
     def test_set(self):
         """check if the class has attribute"""
         my_set = City()
+        self.assertIsInstance(my_set.name, str)
+        self.assertIsInstance(my_set.state_id, str)
         my_set.name = "Andres"
         my_set.state_id = "1234"
         my_dict = my_set.to_dict()
