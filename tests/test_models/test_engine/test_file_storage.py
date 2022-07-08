@@ -9,6 +9,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+from models.engine.file_storage import FileStorage
 
 
 class General(unittest.TestCase):
@@ -32,6 +33,16 @@ class General(unittest.TestCase):
         my_model = BaseModel()
         my_model.save()
         self.assertTrue(os.path.exists('file.json'))
+
+    def test_file_path(self):
+        """method test__file_path if exist"""
+
+        name_exist = BaseModel()
+        name_exist.save()
+        self.assertTrue(os.path.exists('file.json'))
+        obj_exist = FileStorage()
+        obj_exist.reload() 
+        print(FileStorage.__objects)
 
 
 if __name__ == '__main__':
