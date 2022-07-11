@@ -98,3 +98,4 @@ guillaume@ubuntu:~/AirBnB$
 
 ## AUTHORS
 * **Andrés Ocaña** - *Documentación* - [AFOP](https://github.com/afop)  
+# Web Static
